@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 // CONNECTING TO THE DATABASE
-mongoose.connect(process.env.DATABASE_URL,);
+mongoose.connect('mongodb+srv://kagisomphayi:bIKEbqmoRTpf9Waw@subscribers.psvk2.mongodb.net/bookingSystems?retryWrites=true&w=majority');
 
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
@@ -33,8 +33,6 @@ app.use("/users", usersRouter);
 const servicesRouter = require("./routes/servicesRouter");
 app.use("/services", servicesRouter);
 
-const adminRouter = require("./routes/adminRouter");
-app.use("/admin", adminRouter);
 
 // const cartRouter = require("./routes/cartRouter");
 // app.use("/cart", cartRouter);

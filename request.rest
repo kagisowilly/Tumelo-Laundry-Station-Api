@@ -1,0 +1,17 @@
+POST http://localhost:3500/users
+Content-Type: application/json
+
+{
+    "user_name": "kagiso",
+    "user_email":"kagiso@gmail.com",
+    "user_password":"kagiso2022",
+    "user_contactNumber": "0755667788",
+    "user_role": "user"
+}
+
+###
+GET  http://localhost:3500/users
+
+###
+
+DELETE http://localhost:3500/users/6228a5a980c236ed0bb334fd

@@ -17,14 +17,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  user_role: {
+    type: String,
+    required: true,
+  },
   join_date: {
     type: Date,
   },
-  cart: {
-    type: Array,
-    required: false,
-    default: [],
-  },
+//   cart: {
+//     type: Array,
+//     required: false,
+//     default: [],
+//   },
 });
 
 module.exports = mongoose.model("Users", userSchema);

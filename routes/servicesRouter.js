@@ -23,10 +23,9 @@ router.get("/:id", [authenticateToken, getService], (req, res, next) => {
 // CREATE SERVICE
 router.post("/",  authenticateToken, async (req, res, next) => {
   const service = new services({
-    product_name: req.body.product_name,
-    product_price: req.body.product_price,
-    product_image: req.body.product_image,
-    product_category: req.body.product_category,
+    laundry_service: req.body.laundry_service,
+    service_price: req.body.service_price,
+    service_image: req.body.service_image,
   });
   try {
     const newService = await service.save();
@@ -38,21 +37,18 @@ router.post("/",  authenticateToken, async (req, res, next) => {
 
 // UPDATE SERVICE
 router.patch("/:id", [authenticateToken, getService], async (req, res, next) => {
-  if (req.body.product_name != null) {
-    res.product.product_name = req.body.product_name;
+  if (req.body.laundry_service != null) {
+    res.service.laundry_service = req.body.laundry_service;
   }
-  if (req.body.product_price != null) {
-    res.product.product_price = req.body.product_price;
+  if (req.body.service_price != null) {
+    res.service.service_price = req.body.service_price;
   }
-  if (req.body.product_image != null) {
-    res.product.product_image = req.body.product_image;
-  }
-  if (req.body.product_category != null) {
-    res.product.product_category = req.body.product_category;
+  if (req.body.service_image != null) {
+    res.service.service_image = req.body.service_image;
   }
   try {
-    const updatedProduct = await res.product.save();
-    res.json(updatedProduct);
+    const updatedService = await res.service.save();
+    res.json(updatedService);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
