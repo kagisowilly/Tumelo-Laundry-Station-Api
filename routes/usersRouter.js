@@ -33,7 +33,7 @@ router.post("/", async (req, res, next) => {
     user_email,
     user_contactNumber,
     user_password: hashedPassword,
-    user_role: "userr",
+    user_role: "user",
   });
     
   try {
@@ -60,8 +60,10 @@ router.put("/:id", authenticateToken, getUser, async (req, res, next) => {
   if (req.body.user_email != null) {
     res.user.user_email = req.body.user_email;
   }
-  if (req.body.user_password != null) {
-    res.user.user_password = req.body.user_password;
+  if (req.body.user_password) {
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(user_password, salt);
+    res.user.user_password = hashedPassword;
   }
   if (req.body.user_contactNumber != null) {
     res.user.user_contactNumber = req.body.user_contactNumber;

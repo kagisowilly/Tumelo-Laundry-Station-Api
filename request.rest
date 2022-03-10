@@ -6,12 +6,78 @@ Content-Type: application/json
     "user_email":"kagiso@gmail.com",
     "user_password":"kagiso2022",
     "user_contactNumber": "0755667788",
+    "user_role": ""
+}
+
+###
+
+PATCH  http://localhost:3500/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
+
+
+{
+    "user_email":"kagiso@gmail.com",
+    "user_password":"kagiso2022"
+}
+
+###
+GET  http://localhost:3500/users/6228a52380c236ed0bb334f9
+
+###
+PUT http://localhost:3500/users/6228a52380c236ed0bb334f9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
+
+{
+    "user_name": "william",
+    "user_email":"kagiso@gmail.com",
+    "hashedPassword":"kagiso2020",
+    "user_contactNumber": "0755667788",
     "user_role": "user"
 }
 
 ###
-GET  http://localhost:3500/users
+
+DELETE http://localhost:3500/users/6228a36880c236ed0bb334f7
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 ###
 
-DELETE http://localhost:3500/users/6228a5a980c236ed0bb334fd
+POST http://localhost:3500/services
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
+
+
+{
+    "laundry_service": "drying only",
+    "service_price":"15.99",
+    "service_image":"kagiso2022",
+    "date": "21-12-2014",
+    "time": "12H00"
+    
+}
+
+###
+GET  http://localhost:3500/services/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
+
+
+###
+PUT http://localhost:3500/services/622a011b3c071dc870bc1f6d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
+
+{
+    "laundry_service": "drying and washing",
+    "service_price":"50.99",
+    "service_image":"kagiso2022",
+    "date": "21-12-2014",
+    "time": "12H00"
+}
+
+###
+
+DELETE http://localhost:3500/services/622a078e1109e51093b2ad90
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
+

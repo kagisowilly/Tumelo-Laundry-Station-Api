@@ -1,6 +1,5 @@
 // DEPENDENCIES
 const express = require("express");
-const services = require("../models/services");
 const router = express.Router();
 const Services = require("../models/services");
 const authenticateToken = require("./components/auth");
@@ -8,7 +7,7 @@ const authenticateToken = require("./components/auth");
 // GETTING ALL SERVICES
 router.get("/", authenticateToken, async (req, res, next) => {
   try {
-    const services = await services.find();
+    const services = await Services.find();
     res.json(services);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -21,36 +20,71 @@ router.get("/:id", [authenticateToken, getService], (req, res, next) => {
 });
 
 // CREATE SERVICE
-router.post("/",  authenticateToken, async (req, res, next) => {
-  const service = new services({
-    laundry_service: req.body.laundry_service,
-    service_price: req.body.service_price,
-    service_image: req.body.service_image,
-  });
+// router.post("/",  authenticateToken, async (req, res, next) => {
+//   const service = new Services({
+//     laundry_service: req.body.laundry_service,
+//     service_price: req.body.service_price,
+//     service_image: req.body.service_image,
+//     date: req.body.date,
+//     time: req.body.time,
+
+//   });
+//   try {
+//     const newService = await service.save();
+//     res.status(201).json(newService);
+//   } catch (err) {
+//     res.status(400).json({ message: err.message });
+//   }
+// });
+
+router.post("/", authenticateToken, async (req, res, next) => {
+  const { laundry_service, service_price, service_image, date, time } = req.body;
+
+  let service;
+
+  service_image
+    ? (service = new Services({
+      laundry_service,
+      service_price,
+      service_image,
+      date,
+      time,
+      author: req.user._id,
+      }))
+    : (service = new Services({
+      laundry_service,
+      service_price,
+      service_image,
+      date,
+      time,
+      author: req.user._id,
+      }));
+
   try {
     const newService = await service.save();
     res.status(201).json(newService);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
 });
-
 // UPDATE SERVICE
-router.patch("/:id", [authenticateToken, getService], async (req, res, next) => {
-  if (req.body.laundry_service != null) {
-    res.service.laundry_service = req.body.laundry_service;
-  }
-  if (req.body.service_price != null) {
-    res.service.service_price = req.body.service_price;
-  }
-  if (req.body.service_image != null) {
-    res.service.service_image = req.body.service_image;
-  }
+router.put("/:id", [authenticateToken, getService], async (req, res, next) => {
+  if (req.user._id !== res.service.author)
+    res
+      .status(400)
+      .json({ message: "You do not have the permission to update this service" });
+  const { laundry_service, service_price, service_image, date,time } = req.body;
+  if (laundry_service) res.service.laundry_service = laundry_service;
+  if (service_price) res.service.service_price = service_price;
+  if (service_image) res.service.service_image = service_image;
+  if (date) res.service.date = date;
+  if (time) res.service.time = time;
+
   try {
     const updatedService = await res.service.save();
-    res.json(updatedService);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(201).send(updatedService);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
 });
 
@@ -68,7 +102,7 @@ router.delete("/:id", [authenticateToken, getService], async (req, res, next) =>
 async function  getService(req, res, next) {
   let service;
   try {
-    service = await services.findById(req.params.id);
+    service = await Services.findById(req.params.id);
     if (service == null) {
       return res.status(404).json({ message: "Cannot Find The Services" });
     }
