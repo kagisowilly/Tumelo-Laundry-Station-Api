@@ -5,17 +5,18 @@ const Services = require("../models/services");
 const authenticateToken = require("./components/auth");
 
 // GETTING ALL SERVICES
-router.get("/", authenticateToken, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const services = await Services.find();
     res.json(services);
   } catch (err) {
     res.status(500).json({ message: err.message });
+    console.log(message)
   }
 });
 
 // GETTING ONE SERVICE
-router.get("/:id", [authenticateToken, getService], (req, res, next) => {
+router.get("/:id", [ getService], (req, res, next) => {
   res.send(res.service);
 });
 
