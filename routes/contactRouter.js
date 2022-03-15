@@ -38,7 +38,7 @@ app.post("/", (req, res) => {
     if (error) {
       console.log(error);
 
-      res.status(400).send({ msg: "Email could not be sent" + error });
+      res.status(400).send({ msg: "Your email could not be sent" + error });
     } else {cont-content
       console.log("Email sent: " + info.response);
 
