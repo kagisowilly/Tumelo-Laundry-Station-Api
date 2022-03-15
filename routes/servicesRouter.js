@@ -20,25 +20,8 @@ router.get("/:id", [authenticateToken, getService], (req, res, next) => {
 });
 
 // CREATE SERVICE
-// router.post("/",  authenticateToken, async (req, res, next) => {
-//   const service = new Services({
-//     laundry_service: req.body.laundry_service,
-//     service_price: req.body.service_price,
-//     service_image: req.body.service_image,
-//     date: req.body.date,
-//     time: req.body.time,
-
-//   });
-//   try {
-//     const newService = await service.save();
-//     res.status(201).json(newService);
-//   } catch (err) {
-//     res.status(400).json({ message: err.message });
-//   }
-// });
-
 router.post("/", authenticateToken, async (req, res, next) => {
-  const { laundry_service, service_price, service_image, date, time } = req.body;
+  const { laundry_service, service_price, service_image, } = req.body;
 
   let service;
 
@@ -47,17 +30,13 @@ router.post("/", authenticateToken, async (req, res, next) => {
       laundry_service,
       service_price,
       service_image,
-      date,
-      time,
-      author: req.user._id,
+      author: req.user._id
       }))
     : (service = new Services({
       laundry_service,
       service_price,
       service_image,
-      date,
-      time,
-      author: req.user._id,
+      author: req.user._id
       }));
 
   try {
@@ -73,12 +52,10 @@ router.put("/:id", [authenticateToken, getService], async (req, res, next) => {
     res
       .status(400)
       .json({ message: "You do not have the permission to update this service" });
-  const { laundry_service, service_price, service_image, date,time } = req.body;
+  const { laundry_service, service_price, service_image, } = req.body;
   if (laundry_service) res.service.laundry_service = laundry_service;
   if (service_price) res.service.service_price = service_price;
   if (service_image) res.service.service_image = service_image;
-  if (date) res.service.date = date;
-  if (time) res.service.time = time;
 
   try {
     const updatedService = await res.service.save();

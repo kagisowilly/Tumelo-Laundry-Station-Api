@@ -78,7 +78,7 @@ router.put("/:id", authenticateToken, getUser, async (req, res, next) => {
 });
 
 // DELETE ONE
-router.delete("/:id", authenticateToken, getUser, async (req, res, next) => {
+router.delete("/:id", [authenticateToken, getUser], async (req, res, next) => {
   try {
     await res.user.remove();
     res.json({ message: "Deleted User" });

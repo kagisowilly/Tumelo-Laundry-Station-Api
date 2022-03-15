@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 // CONNECTING TO THE DATABASE
-mongoose.connect('mongodb+srv://kagisomphayi:bIKEbqmoRTpf9Waw@subscribers.psvk2.mongodb.net/bookingSystems?retryWrites=true&w=majority');
+mongoose.connect(process.env.DATABASE_URL,);
 
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
