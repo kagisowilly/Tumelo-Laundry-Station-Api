@@ -16,12 +16,12 @@ Content-Type: application/json
 
 
 {
-    "user_email":"kagiso@gmail.com",
-    "user_password":"kagiso2022"
+    "user_email":"John@gmail.com",
+    "user_password":"john2020"
 }
 
 ###
-GET  http://localhost:3500/users/6228a52380c236ed0bb334f9
+GET  http://localhost:3500/users/
 
 ###
 PUT http://localhost:3500/users/6228a52380c236ed0bb334f9

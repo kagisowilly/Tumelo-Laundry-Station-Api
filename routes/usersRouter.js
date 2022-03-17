@@ -1,3 +1,4 @@
+require("dotenv").config
 const express = require("express");
 const prices = require("../models/services");
 const router = express.Router();
@@ -35,7 +36,7 @@ router.post("/", async (req, res, next) => {
     user_password: hashedPassword,
     user_role: "user",
   });
-    
+
   try {
     const newUser = await user.save();
     try {
