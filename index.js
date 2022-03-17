@@ -33,6 +33,8 @@ app.use("/users", usersRouter);
 const servicesRouter = require("./routes/servicesRouter");
 app.use("/services", servicesRouter);
 
+const contactRouter = require("./routes/contactRouter");
+app.use("/contact", contactRouter)
 
 // const cartRouter = require("./routes/cartRouter");
 // app.use("/cart", cartRouter);
