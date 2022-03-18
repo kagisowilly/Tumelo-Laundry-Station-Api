@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
   join_date: {
     type: Date,
   },
-//   cart: {
+//   booking: {
 //     type: Array,
 //     required: false,
 //     default: [],
