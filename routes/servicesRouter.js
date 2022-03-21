@@ -68,6 +68,10 @@ router.put("/:id", [authenticateToken, getService], async (req, res, next) => {
 
 // DELETE SERVICE
 router.delete("/:id", [authenticateToken, getService], async (req, res, next) => {
+  if (req.user._id !== res.service.author)
+  res
+    .status(400)
+    .json({ message: "Yoau do not have the permission to delete this product" });
   try {
     await res.service.remove();
     res.json({ message: "Deleted Service" });

@@ -34,7 +34,7 @@ router.post("/", async (req, res, next) => {
     user_email,
     user_contactNumber,
     user_password: hashedPassword,
-    user_role: "user",
+    
   });
 
   try {
