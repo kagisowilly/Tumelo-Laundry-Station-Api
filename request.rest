@@ -16,8 +16,8 @@ Content-Type: application/json
 
 
 {
-    "user_email":"John@gmail.com",
-    "user_password":"john2020"
+    "user_email":"kagiso@gmail.com",
+    "user_password":"kagiso2022"
 }
 
 ###
