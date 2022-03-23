@@ -106,7 +106,7 @@ router.patch("/", async (req, res, next) => {
   } else {
     res
       .status(400)
-      .json({ message: "Email and password combination do not match" });
+      .json({ message: "Email and password do not match" });
   }
 });
 
