@@ -98,7 +98,9 @@ router.patch("/", async (req, res, next) => {
         JSON.stringify(users),
         process.env.ACCESS_TOKEN_SECRET
       );
-      res.status(201).json({ jwt: access_token });
+      res.status(201).json({ jwt: access_token })
+      ;
+      
     } catch (err) {
       res.status(500).json({ message: err.message });
     }
