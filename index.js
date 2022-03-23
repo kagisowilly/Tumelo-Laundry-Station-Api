@@ -1,3 +1,5 @@
+console.log("You have entered the app")
+
 // DEPENDENCIES
 require("dotenv").config();
 const express = require("express");
