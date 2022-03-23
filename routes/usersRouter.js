@@ -26,7 +26,6 @@ router.get("/:id", getUser, (req, res, next) => {
 // CREATE ONE/REGISTER
 router.post("/", async (req, res, next) => {
   const { user_name, user_email, user_contactNumber, user_password, } = req.body;
-    console.log(user_name)
   const salt = await bcrypt.genSalt();
   const hashedPassword = await bcrypt.hash(user_password, salt);
   const user = new Users({
