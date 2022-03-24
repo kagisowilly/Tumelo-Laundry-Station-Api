@@ -4,12 +4,12 @@ const prices = require("../models/services");
 const router = express.Router();
 const Users = require("../models/users");
 const Prices = require("../models/services");
-const authenticateToken = require("./components/auth");
+const {authenticateToken, authTokenAndAdmin, authTokenAndAuthorization} = require("./components/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 // GETTING ALL USERS
-router.get("/", async (req, res, next) => {
+router.get("/",  authTokenAndAdmin,async (req, res, next) => {
   try {
     const users = await Users.find();
     res.json(users);
@@ -19,7 +19,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // GETTING ONE USER
-router.get("/:id", getUser, (req, res, next) => {
+router.get("/:id", getUser,authTokenAndAuthorization, (req, res, next) => {
   res.send(res.user);
 });
 
@@ -53,7 +53,7 @@ router.post("/", async (req, res, next) => {
 });
 
 // UPDATE ONE
-router.put("/:id", authenticateToken, getUser, async (req, res, next) => {
+router.put("/:id", authTokenAndAdmin, getUser, async (req, res, next) => {
   if (req.body.user_name != null) {
     res.user.user_name = req.body.user_name;
   }

@@ -16,12 +16,14 @@ Content-Type: application/json
 
 
 {
-    "user_email":"kagiso@gmail.com",
-    "user_password":"kagiso2022"
+    "user_email":"mphayi26@gmail.com",
+    "user_password":"kagiso2526"
 }
 
 ###
 GET  http://localhost:3500/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2MjM4YTM1OWQ5YzI3N2RiMWVlMWVmMzciLCJ1c2VyX25hbWUiOiJLYWdpc28gTXBoYXlpIiwidXNlcl9lbWFpbCI6Im1waGF5aTI2QGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkLi9OdW9PVUJRZjJtb2FtWTlrZHVCT3hVUHdiNDNqc3B6N3VpWHJlNURFbUc3Z0VNUi5ma0siLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzEyMzQ1Njc4IiwiYWRtaW4iOnRydWUsImJvb2tpbmciOltdLCJqb2luX2RhdGUiOiIyMDIyLTAzLTIxVDE2OjEwOjAxLjE3OFoiLCJfX3YiOjB9.jsayGklFbx6ydzQasTbd-YPkJD0ZZTC2c-m62Rzrc8k
+
 
 ###
 PUT http://localhost:3500/users/6228a52380c236ed0bb334f9
