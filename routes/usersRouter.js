@@ -90,15 +90,15 @@ router.delete("/:id", [authenticateToken, getUser], async (req, res, next) => {
 // LOGIN USER WITH EMAIL AND PASSWORD
 router.patch("/", async (req, res, next) => {
   const { user_email, user_password } = req.body;
-  const users = await Users.findOne({ user_email });
-  if (!users) res.status(404).json({ message: "Could not find user" });
-  if (await bcrypt.compare(user_password, users.user_password)) {
+  const user = await Users.findOne({ user_email });
+  if (!user) res.status(404).json({ message: "Could not find user" });
+  if (await bcrypt.compare(user_password, user.user_password)) {
     try {
       const access_token = jwt.sign(
         JSON.stringify(users),
         process.env.ACCESS_TOKEN_SECRET
       );
-      res.status(201).json({ jwt: access_token })
+      res.status(201).json({ jwt: access_token, user })
       ;
       
     } catch (err) {
