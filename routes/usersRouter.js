@@ -19,7 +19,7 @@ router.get("/",  async (req, res, next) => {
 });
 
 // GETTING ONE USER
-router.get("/:id", getUser,authenticateToken, (req, res, next) => {
+router.get("/:id", getUser, (req, res, next) => {
   res.send(res.user);
 });
 
@@ -53,7 +53,7 @@ router.post("/", async (req, res, next) => {
 });
 
 // UPDATE ONE
-router.put("/:id", authenticateToken, getUser, async (req, res, next) => {
+router.put("/:id", getUser, async (req, res, next) => {
   if (req.body.user_name != null) {
     res.user.user_name = req.body.user_name;
   }
@@ -78,7 +78,7 @@ router.put("/:id", authenticateToken, getUser, async (req, res, next) => {
 });
 
 // DELETE ONE
-router.delete("/:id", [authenticateToken, getUser], async (req, res, next) => {
+router.delete("/:id", [ getUser], async (req, res, next) => {
   try {
     await res.user.remove();
     res.json({ message: "Deleted User" });

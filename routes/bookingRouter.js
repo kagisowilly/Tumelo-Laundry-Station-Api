@@ -3,14 +3,15 @@ const Booking = require("../models/booking");
 const { authenticateToken } = require("./components/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const express = require("express");
 
 // CREATE A BOOKING
-router.get("/:id", [getBooking, authenticateToken ], (req, res, next) => {
+router.get("/:id", [getBooking ], (req, res, next) => {
   res.send(res.booking);
 });
 
 // CREATE SERVICE
-router.post("/", authenticateToken, async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   const { username, email, phone, service, amount, date, time} = req.body;
 
   let booking;
@@ -24,7 +25,6 @@ router.post("/", authenticateToken, async (req, res, next) => {
         amount,
         date,
         time,
-        author: req.user._id,
       }))
     : (booking = new Booking({
         username,
@@ -34,7 +34,6 @@ router.post("/", authenticateToken, async (req, res, next) => {
         amount,
         date,
         time,
-        author: req.user._id,
       }));
 
   try {
@@ -47,7 +46,7 @@ router.post("/", authenticateToken, async (req, res, next) => {
 
 // GET ALL BOOKINGS
 
-router.get("/", authenticateToken, async (req, res) => {
+router.get("/", async (req, res) => {
   const username = req.query.user;
   try {
     let bookings;
@@ -87,18 +86,28 @@ router.get("/", authenticateToken, async (req, res) => {
 // });
 
 // DELETE ONE
-router.delete(
-  "/:id",
-  [authenticateToken, getBooking],
-  async (req, res, next) => {
-    try {
-      await res.booking.remove();
-      res.json({ message: "Deleted Booking" });
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
+// router.delete(
+//   "/:id",
+//   [ getBooking],
+//   async (req, res, next) => {
+//     try {
+//       await res.booking.remove();
+//       res.json({ message: "Deleted Booking" });
+//     } catch (err) {
+//       res.status(500).json({ message: err.message });
+//     }
+//   }
+// );
+
+// DELETE SERVICE
+router.delete("/:id", [ getBooking], async (req, res, next) => {
+  try {
+    await res.booking.remove();
+    res.json({ message: "Deleted Service" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
-);
+});
 
 // FUNCTION TO GET BOOKING
 async function getBooking(req, res, next) {

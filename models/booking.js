@@ -32,7 +32,7 @@ username:{
  },
  author: {
     type: String,
-    required: true,
+    required: false,
   },
 
 },{timestamps:true})  //gives the created an dupdated at times //

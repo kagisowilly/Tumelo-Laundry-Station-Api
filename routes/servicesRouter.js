@@ -21,17 +21,16 @@ router.get("/:id", [ getService], (req, res, next) => {
 });
 
 // CREATE SERVICE
-router.post("/", authenticateToken , async (req, res, next) => {
+router.post("/",  async (req, res, next) => {
   const { laundry_service, service_price, service_image, } = req.body;
 
   let service;
-
   service_image
     ? (service = new Services({
       laundry_service,
       service_price,
       service_image,
-      author: req.user._id
+      author: req.id._id
       }))
     : (service = new Services({
       laundry_service,
@@ -48,7 +47,7 @@ router.post("/", authenticateToken , async (req, res, next) => {
   }
 });
 // UPDATE SERVICE
-router.put("/:id", [authenticateToken , getService], async (req, res, next) => {
+router.put("/:id", [ getService], async (req, res, next) => {
   if (req.user._id !== res.service.author)
     res
       .status(400)
@@ -67,11 +66,7 @@ router.put("/:id", [authenticateToken , getService], async (req, res, next) => {
 });
 
 // DELETE SERVICE
-router.delete("/:id", [authenticateToken, getService], async (req, res, next) => {
-  if (req.user._id !== res.service.author)
-  res
-    .status(400)
-    .json({ message: "Yoau do not have the permission to delete this product" });
+router.delete("/:id", [ getService], async (req, res, next) => {
   try {
     await res.service.remove();
     res.json({ message: "Deleted Service" });

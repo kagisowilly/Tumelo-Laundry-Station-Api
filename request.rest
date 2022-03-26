@@ -101,13 +101,13 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 {
-    "username":"kagiso mphayi",
-    "email":"mphayi@gmail.com",
+    "username":"Winny Mpofu",
+    "email":"Winny@gmail.com",
     "phone":"042524697532",
-    "service": "Iron",
-    "amount":"3",
-    "date": "02/02/2022",
-    "time":"12:00"
+    "service": "wash and dry",
+    "amount":"5",
+    "date": "09/7/2022",
+    "time":"15:00"
 }
 
 ###
@@ -115,7 +115,7 @@ GET  http://localhost:3500/book
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 ###
-DELETE http://localhost:3500/book/623ed4b33101e20376314dbb
+DELETE http://localhost:3500/book/623f14f46a5138baae8d0528
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 ###
 
