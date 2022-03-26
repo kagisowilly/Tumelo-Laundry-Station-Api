@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const Services = require("../models/services");
-const  {authTokenAndAdmin} = require("./components/auth");
+const  {authenticateToken} = require("./components/auth");
 
 // GETTING ALL SERVICES
 router.get("/", async (req, res, next) => {
@@ -21,7 +21,7 @@ router.get("/:id", [ getService], (req, res, next) => {
 });
 
 // CREATE SERVICE
-router.post("/", authTokenAndAdmin , async (req, res, next) => {
+router.post("/", authenticateToken , async (req, res, next) => {
   const { laundry_service, service_price, service_image, } = req.body;
 
   let service;
@@ -44,11 +44,11 @@ router.post("/", authTokenAndAdmin , async (req, res, next) => {
     const newService = await service.save();
     res.status(201).json(newService);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+
   }
 });
 // UPDATE SERVICE
-router.put("/:id", [authTokenAndAdmin , getService], async (req, res, next) => {
+router.put("/:id", [authenticateToken , getService], async (req, res, next) => {
   if (req.user._id !== res.service.author)
     res
       .status(400)
@@ -67,7 +67,7 @@ router.put("/:id", [authTokenAndAdmin , getService], async (req, res, next) => {
 });
 
 // DELETE SERVICE
-router.delete("/:id", [authTokenAndAdmin , getService], async (req, res, next) => {
+router.delete("/:id", [authenticateToken, getService], async (req, res, next) => {
   if (req.user._id !== res.service.author)
   res
     .status(400)

@@ -38,8 +38,8 @@ app.use("/services", servicesRouter);
 const contactRouter = require("./routes/contactRouter");
 app.use("/contact", contactRouter)
 
-// const cartRouter = require("./routes/cartRouter");
-// app.use("/cart", cartRouter);
+const bookingRouter = require("./routes/bookingRouter");
+app.use("/book", bookingRouter);
 
 app.listen(app.get("port"), () => {
   console.log(`Listening for calls on port ${app.get("port")}`);

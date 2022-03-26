@@ -9,7 +9,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 // GETTING ALL USERS
-router.get("/",  authTokenAndAdmin,async (req, res, next) => {
+router.get("/",  authenticateToken,async (req, res, next) => {
   try {
     const users = await Users.find();
     res.json(users);
@@ -19,7 +19,7 @@ router.get("/",  authTokenAndAdmin,async (req, res, next) => {
 });
 
 // GETTING ONE USER
-router.get("/:id", getUser,authTokenAndAuthorization, (req, res, next) => {
+router.get("/:id", getUser,authenticateToken, (req, res, next) => {
   res.send(res.user);
 });
 
@@ -53,7 +53,7 @@ router.post("/", async (req, res, next) => {
 });
 
 // UPDATE ONE
-router.put("/:id", authTokenAndAdmin, getUser, async (req, res, next) => {
+router.put("/:id", authenticateToken, getUser, async (req, res, next) => {
   if (req.body.user_name != null) {
     res.user.user_name = req.body.user_name;
   }
@@ -95,7 +95,7 @@ router.patch("/", async (req, res, next) => {
   if (await bcrypt.compare(user_password, user.user_password)) {
     try {
       const access_token = jwt.sign(
-        JSON.stringify(users),
+        JSON.stringify(user),
         process.env.ACCESS_TOKEN_SECRET
       );
       res.status(201).json({ jwt: access_token, user })
