@@ -9,7 +9,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 // GETTING ALL USERS
-router.get("/",  authenticateToken,async (req, res, next) => {
+router.get("/",  async (req, res, next) => {
   try {
     const users = await Users.find();
     res.json(users);
