@@ -48,8 +48,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX
 
 POST http://localhost:3500/services
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
-
 
 {
     "laundry_service": "Shoes",
@@ -66,9 +64,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 {
-    "laundry_service": "Iron & Fold",
-    "service_price":"50",
-    "service_image":"https://i.postimg.cc/yYG5tmHS/iron-and-fold.jpg"
+    "laundry_service": "Curtains",
+    "service_price":"75",
+    "service_image":"https://www.centurianwindowfashions.com/storage/2019/09/curtains-machine-wash.jpg"
 }
 
 ###

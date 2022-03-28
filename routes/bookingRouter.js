@@ -10,7 +10,7 @@ router.get("/:id", [getBooking ], (req, res, next) => {
   res.send(res.booking);
 });
 
-// CREATE SERVICE
+// CREATE BOOKING
 router.post("/", async (req, res, next) => {
   const { username, email, phone, service, amount, date, time} = req.body;
 

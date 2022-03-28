@@ -21,29 +21,15 @@ router.get("/:id", [ getService], (req, res, next) => {
 });
 
 // CREATE SERVICE
-router.post("/",  async (req, res, next) => {
-  const { laundry_service, service_price, service_image, } = req.body;
+router.post("/", [authenticateToken], async(req, res, next)=>{
+  const {laundry_service, service_image, service_price} = req.body
+  const newService = await new Services(req.body)
 
-  let service;
-  service_image
-    ? (service = new Services({
-      laundry_service,
-      service_price,
-      service_image,
-      author: req.id._id
-      }))
-    : (service = new Services({
-      laundry_service,
-      service_price,
-      service_image,
-      author: req.user._id
-      }));
-
-  try {
-    const newService = await service.save();
-    res.status(201).json(newService);
-  } catch (error) {
-
+  try{
+      const savedService = await newService.save()
+      res.status(200).json(savedService)
+  }catch(error){
+      res.status(500).json(error)
   }
 });
 // UPDATE SERVICE
