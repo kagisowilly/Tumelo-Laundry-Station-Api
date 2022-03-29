@@ -21,7 +21,7 @@ router.get("/:id", [ getService], (req, res, next) => {
 });
 
 // CREATE SERVICE
-router.post("/", [authenticateToken], async(req, res, next)=>{
+router.post("/",  async(req, res, next)=>{
   const {laundry_service, service_image, service_price} = req.body
   const newService = await new Services(req.body)
 
