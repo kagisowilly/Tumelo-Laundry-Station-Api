@@ -4,9 +4,10 @@ const prices = require("../models/services");
 const router = express.Router();
 const Users = require("../models/users");
 const Prices = require("../models/services");
-const {authenticateToken, authTokenAndAdmin, authTokenAndAuthorization} = require("./components/auth");
+const {authenticateToken, authTokenAndAdmin, authTokenAndAuthorization} = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { getUser } = require("../middleware/get");
 
 // GETTING ALL USERS
 router.get("/",  async (req, res, next) => {
@@ -113,19 +114,5 @@ router.patch("/", async (req, res, next) => {
 
 // 
 
-// FUNCTION TO GET USER ID
-async function getUser(req, res, next) {
-  let user;
-  try {
-    user = await Users.findById(req.params.id);
-    if (user == null) {
-      return res.status(404).json({ message: "Cannot find user" });
-    }
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-  res.user = user;
-  next();
-}
 
 module.exports = router;

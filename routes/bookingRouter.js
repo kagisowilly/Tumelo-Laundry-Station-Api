@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const Booking = require("../models/booking");
-const { authenticateToken } = require("./components/auth");
+const { authenticateToken } = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const express = require("express");
+const { getUser, getBooking } = require("../middleware/get");
 
 // CREATE A BOOKING
 router.get("/:id", [getBooking ], (req, res, next) => {
@@ -109,19 +110,19 @@ router.delete("/:id", [ getBooking], async (req, res, next) => {
   }
 });
 
-// FUNCTION TO GET BOOKING
-async function getBooking(req, res, next) {
-  let booking;
-  try {
-    booking = await Booking.findById(req.params.id);
-    if (booking == null) {
-      return res.status(404).json({ message: "Cannot find booking" });
-    }
-  } catch (err) {
-    return res.status(500).json({ message: err.message });
-  }
-  res.booking = booking;
-  next();
-}
+// // FUNCTION TO GET BOOKING
+// async function getBooking(req, res, next) {
+//   let booking;
+//   try {
+//     booking = await Booking.findById(req.params.id);
+//     if (booking == null) {
+//       return res.status(404).json({ message: "Cannot find booking" });
+//     }
+//   } catch (err) {
+//     return res.status(500).json({ message: err.message });
+//   }
+//   res.booking = booking;
+//   next();
+// }
 
 module.exports = router;

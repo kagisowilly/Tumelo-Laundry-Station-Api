@@ -1,8 +1,11 @@
 // DEPENDENCIES
 const express = require("express");
+require("dotenv").config;
 const router = express.Router();
 const Services = require("../models/services");
-const  {authenticateToken} = require("./components/auth");
+const  {authenticateToken } = require("../middleware/auth");
+const { getUser, getService } = require("../middleware/get");
+const users = require("./usersRouter");
 
 // GETTING ALL SERVICES
 router.get("/", async (req, res, next) => {
@@ -62,17 +65,17 @@ router.delete("/:id", [ getService], async (req, res, next) => {
 });
 
 // FUNCTION TO GET SERVICES
-async function  getService(req, res, next) {
-  let service;
-  try {
-    service = await Services.findById(req.params.id);
-    if (service == null) {
-      return res.status(404).json({ message: "Cannot Find The Services" });
-    }
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
-  }
-  res.service = service;
-  next();
-}
+// async function  getService(req, res, next) {
+//   let service;
+//   try {
+//     service = await Services.findById(req.params.id);
+//     if (!service) {
+//       return res.status(404).json({ message: "Cannot Find The Services" });
+//     }
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+//   res.service = service;
+//   next();
+// }
 module.exports = router;
