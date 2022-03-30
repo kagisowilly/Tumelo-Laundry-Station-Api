@@ -18,7 +18,15 @@ router.get("/", authenticateToken,  async (req, res, next) => {
     res.status(500).json({ message: err.message });
   }
 });
-
+// GET one user
+router.get("/oneuser/", authenticateToken, async (req, res, next) => {
+  try {
+    const user = await Users.findById(req.user._id);
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 // GETTING ONE USER
 router.get("/:id",[getUser, authenticateToken],async (req, res, next) => {
   try {
