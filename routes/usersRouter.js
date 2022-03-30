@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 const { getUser } = require("../middleware/get");
 
 // GETTING ALL USERS
-router.get("/",  async (req, res, next) => {
+router.get("/", authenticateToken,  async (req, res, next) => {
   try {
     const users = await Users.find();
     res.json(users);
@@ -20,9 +20,14 @@ router.get("/",  async (req, res, next) => {
 });
 
 // GETTING ONE USER
-router.get("/:id", getUser, (req, res, next) => {
-  res.send(res.user);
-});
+router.get("/:id",[getUser, authenticateToken],async (req, res, next) => {
+  try {
+    const user = await Users.findById(req.user._id);
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});;
 
 // CREATE ONE/REGISTER
 router.post("/", async (req, res, next) => {

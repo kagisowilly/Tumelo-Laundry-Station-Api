@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "user_name": "danny",
-    "user_email":"danny@gmail.com",
+    "user_email":"gpdzvapatsva@gmail.com",
     "user_password":"danny2022",
     "user_contactNumber": "3456789078"
 }
@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:3500/users/
+GET  http://localhost:3500/users/6238a359d9c277db1ee1ef37
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2MjM4YTM1OWQ5YzI3N2RiMWVlMWVmMzciLCJ1c2VyX25hbWUiOiJLYWdpc28gTXBoYXlpIiwidXNlcl9lbWFpbCI6Im1waGF5aTI2QGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkLi9OdW9PVUJRZjJtb2FtWTlrZHVCT3hVUHdiNDNqc3B6N3VpWHJlNURFbUc3Z0VNUi5ma0siLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzEyMzQ1Njc4IiwiYWRtaW4iOnRydWUsImJvb2tpbmciOltdLCJqb2luX2RhdGUiOiIyMDIyLTAzLTIxVDE2OjEwOjAxLjE3OFoiLCJfX3YiOjB9.jsayGklFbx6ydzQasTbd-YPkJD0ZZTC2c-m62Rzrc8k
 
 
