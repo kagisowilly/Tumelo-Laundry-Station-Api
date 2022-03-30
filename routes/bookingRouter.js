@@ -6,8 +6,8 @@ const jwt = require("jsonwebtoken");
 const express = require("express");
 const { getUser, getBooking } = require("../middleware/get");
 
-// CREATE A BOOKING
-router.get("/:id", [getBooking ], (req, res, next) => {
+// GET A BOOKING
+router.get("/:id", [getBooking, authenticateToken ], (req, res, next) => {
   res.send(res.booking);
 });
 
@@ -36,7 +36,7 @@ router.post("/",[authenticateToken] ,async (req, res, next) => {
 
 // GET ALL BOOKINGS
 
-router.get("/", async (req, res) => {
+router.get("/",authenticateToken, async (req, res) => {
   const username = req.query.user;
   try {
     let bookings;
