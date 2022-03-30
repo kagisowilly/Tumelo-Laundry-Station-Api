@@ -12,13 +12,10 @@ router.get("/:id", [getBooking ], (req, res, next) => {
 });
 
 // CREATE BOOKING
-router.post("/", async (req, res, next) => {
+router.post("/",[authenticateToken] ,async (req, res, next) => {
   const { username, email, phone, service, amount, date, time} = req.body;
 
-  let booking;
-
-  service
-    ? (booking = new Booking({
+  let booking = new Booking({
         username,
         email,
         phone,
@@ -26,16 +23,8 @@ router.post("/", async (req, res, next) => {
         amount,
         date,
         time,
-      }))
-    : (booking = new Booking({
-        username,
-        email,
-        phone,
-        service,
-        amount,
-        date,
-        time,
-      }));
+        author: req.user._id,
+      });
 
   try {
     const newBooking = await booking.save();
@@ -62,46 +51,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-// UPDATE SERVICE
-// router.put("/:id", [authenticateToken, getBooking], async (req, res, next) => {
-//   if (req.user._id !== res.booking.author)
-//     res
-//       .status(400)
-//       .json({
-//         message: "You do not have the permission to update this service",
-//       });
-//   const { username, email, phone, service, amount, date, time } = req.body;
-//   if (username) res.booking.username = username;
-//   if (email) res.booking.email = email;
-//   if (phone) res.booking.phone = phone;
-//   if (service) res.booking.service = service;
-//   if (amount) res.booking.amount = amount;
-//   if (date) res.booking.date = date;
-//   if (time) res.booking.time = time;
-//   try {
-//     const updatedBooking = await res.booking.save();
-//     res.status(201).send(updatedBooking);
-//   } catch (error) {
-//     res.status(400).json({ message: error.message });
-//   }
-// });
-
-// DELETE ONE
-// router.delete(
-//   "/:id",
-//   [ getBooking],
-//   async (req, res, next) => {
-//     try {
-//       await res.booking.remove();
-//       res.json({ message: "Deleted Booking" });
-//     } catch (err) {
-//       res.status(500).json({ message: err.message });
-//     }
-//   }
-// );
-
-// DELETE SERVICE
-router.delete("/:id", [ getBooking], async (req, res, next) => {
+// DELETE Booking
+router.delete("/:id", [ authenticateToken,getBooking], async (req, res, next) => {
   try {
     await res.booking.remove();
     res.json({ message: "Deleted Service" });
@@ -110,19 +61,5 @@ router.delete("/:id", [ getBooking], async (req, res, next) => {
   }
 });
 
-// // FUNCTION TO GET BOOKING
-// async function getBooking(req, res, next) {
-//   let booking;
-//   try {
-//     booking = await Booking.findById(req.params.id);
-//     if (booking == null) {
-//       return res.status(404).json({ message: "Cannot find booking" });
-//     }
-//   } catch (err) {
-//     return res.status(500).json({ message: err.message });
-//   }
-//   res.booking = booking;
-//   next();
-// }
 
 module.exports = router;

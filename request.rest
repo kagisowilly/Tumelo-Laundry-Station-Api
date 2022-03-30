@@ -2,11 +2,10 @@ POST http://localhost:3500/users
 Content-Type: application/json
 
 {
-    "user_name": "kagiso",
-    "user_email":"kagiso@gmail.com",
-    "user_password":"kagiso2022",
-    "user_contactNumber": "0755667788",
-    "user_role": ""
+    "user_name": "danny",
+    "user_email":"danny@gmail.com",
+    "user_password":"danny2022",
+    "user_contactNumber": "3456789078"
 }
 
 ###
@@ -51,28 +50,28 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 {
-    "laundry_service": "Curtains",
-    "service_price":"75",
-    "service_image":"https://www.centurianwindowfashions.com/storage/2019/09/curtains-machine-wash.jpg"
+    "laundry_service": "Shoes",
+    "service_price":"50",
+    "service_image":"https://gulfcoastappliances.com/wp-content/uploads/2020/01/Is-It-Safe-to-Wash-My-Shoes-in-a-Washing-Machine-1-1200x675.jpeg"
 }
 
 ###
 GET  http://localhost:3500/services/
 
 ###
-PUT http://localhost:3500/services/62416f9f4646cb56bf2a2642
+PUT http://localhost:3500/services/624406ce17309f5ea86fccfa
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 {
-    "laundry_service": "Curtains",
-    "service_price":"70",
-    "service_image":"https://www.centurianwindowfashions.com/storage/2019/09/curtains-machine-wash.jpg"
+    "laundry_service": "Couch Covers",
+    "service_price":"90",
+    "service_image":"https://i.postimg.cc/D0gyFwGV/couch-covers.jpg"
 }
 
 ###
 
-DELETE http://localhost:3500/services/622a078c1109e51093b2ad8e
+DELETE http://localhost:3500/services/624407a017309f5ea86fccfe
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 ###
@@ -100,13 +99,13 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 {
-    "username":"Winny Mpofu",
-    "email":"Winny@gmail.com",
-    "phone":"042524697532",
-    "service": "wash and dry",
-    "amount":"5",
+    "username":"Zan",
+    "email":"Zan@gmail.com",
+    "phone":"345995",
+    "service": "wash and iron",
+    "amount":"6",
     "date": "09/7/2022",
-    "time":"15:00"
+    "time":"13:00"
 }
 
 ###
@@ -114,7 +113,7 @@ GET  http://localhost:3500/book
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 
 ###
-DELETE http://localhost:3500/book/623f14f46a5138baae8d0528
+DELETE http://localhost:3500/book/
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJrYWdpc28iLCJ1c2VyX2VtYWlsIjoia2FnaXNvQGdtYWlsLmNvbSIsInVzZXJfcGFzc3dvcmQiOiIkMmIkMTAkb2xENWtHci9GZmxXa3hybG5YVUQ2ZWtScVdjZUxYUEdDeFFlQVZsSmY2bXh0dVNSby9VUHEiLCJ1c2VyX2NvbnRhY3ROdW1iZXIiOiIwNzU1NjY3Nzg4IiwidXNlcl9yb2xlIjoidXNlcnIiLCJfaWQiOiI2MjI5OWZkYmU1YTAwZDQ3NTBhZTVkY2MiLCJfX3YiOjB9.8pu0jZ7kg9tg_BaZNDkP1toyHKDBWpJdKEJmm877Edw
 ###
 

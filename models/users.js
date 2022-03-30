@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
   user_email: {
     type: String,
     required: true,
+    unique: true,
   },
   user_password: {
     type: String,
@@ -20,10 +21,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // user_role: {
-  //   type: String,
-  //   required: true,
-  // },
   join_date: {
     type: Date,
     required: false,
@@ -32,12 +29,7 @@ const userSchema = new mongoose.Schema({
   admin:{
     type: Boolean,
     default: false,
-  },
-  booking: {
-    type: Array,
-    required: false,
-    default: [],
-  },
+  }
 });
 
 module.exports = mongoose.model("Users", userSchema);

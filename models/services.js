@@ -5,6 +5,7 @@ const servicesSchema = new mongoose.Schema({
   laundry_service: {
     type: String,
     required: true,
+    unique: true
   },
   service_price: {
     type: String,
@@ -16,7 +17,7 @@ const servicesSchema = new mongoose.Schema({
   },
   author: {
     type: String,
-  },
+  }
 });
 
 module.exports = mongoose.model("Services", servicesSchema);
